@@ -27,22 +27,23 @@ Encryption key: `risk3sixty`
 
 ## Testing the deliverable
 
-When you provide us your final deliverable repository (this can be a tarball of source code, GitHub repo, GitLab, etc.), we will execute the following steps to confirm the solution is adequate:
+To test the deliverable, please follow the steps below in your terminal:
 
-1. If you provide a GitHub/GitLab repo, we will `git clone ...` this repo. If you provide a tarball we will untar it, `$ tar -xf yourRepo.tgz`
+1. `git clone https://github.com/ChadCalcote/chadcalcote-task-docker.git`
 
-2. We will `cd` into the directory and build an image, `docker build -t r3sCandidate .`
+2. `cd chadcalcote-task-docker` 
+ 
+3.  `docker build -t chadcalcote .`
 
-3. We will run the image with `docker run ... r3sCandidate`. NOTE: it's totally fine if we need to provide extra parameters to the `docker run` command like environment variables or override the default command. Just let us know what should be added and we can ensure they're present in the command.
+4.  `docker run -e ciphertext=f78D2XXh8tnSc8a5/FE=:0LDv4U8TeV918C/NvPLOpA== chadcalcote`
 
-4. The execution of the container should print to the screen the decrypted plain text of the solution. Here's an example:
+5. The execution of the container should print to the screen the decrypted plain text of the solution.
 
 ```sh
-MAC-SR:docker-encryption lancewhatley$ docker run [?EXTRA_PARAMS] r3sCandidate [?OVERRIDDEN_COMMAND]
+chadcalcote-task-docker % docker run -e ciphertext=f78D2XXh8tnSc8a5/FE=:0LDv4U8TeV918C/NvPLOpA== chadcalcote
 
-
-> candidate-task-docker-solution@0.0.1 start /usr/encryption
+> chadcalcote-task-docker@0.0.1 start
 > node dist/decryptString.js
 
-[DECRYPTED_PLAIN_TEXT_SHOULD_SHOW_HERE]
+r3s is m00ning
 ```
