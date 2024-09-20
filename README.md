@@ -1,20 +1,31 @@
 # chadcalcote-task-docker
 
-This is an Encryption task with encrypt and decrypt functionality. It has Docker containerization capabilities.
+This is an Encryption task with encrypt and decrypt functionality. It has Docker containerization capabilities and is built using TypeScript.
 
-## Task Requirements
+**Table of Contents**
+  * [Requirements Met](#Requirements-Met)
+  * [Extras](#Extras)
+  * [Testing the Deliverable](#Testing-the-Deliverable)
+
+## Requirements Met
+
+1. `decrypt` function is written inside of the Encryption.ts file and later used in the decryptString.ts file in the src/ directory. This is the inverse of our `encrypt` function. The decryption process takes the same secret key (private) and ciphertext as input to decipher the original data.
+  
+2. The source code from candidate-task-docker, provided in TypeScript and built/executed in a Node.js environment, is being used for this project.
+   
+3. The final deliverable is created in this repository with a `Dockerfile`. Instructions to build and run the container, thus executing the decrypt function, are located in the [Testing the Deliverable](#Testing-the-Deliverable) section below.
+
+## Extras
+
+While working on the coding challenge, I chose to document what the code is doing to help understand the functionality better and provide more insight into my approach to solving technical problems.
+
+This documentation can be found in .md files as well as comments in the code.
 
 Ciphertext: `f78D2XXh8tnSc8a5/FE=:0LDv4U8TeV918C/NvPLOpA==`
 
 Encryption key: `risk3sixty`
 
-1. Please see this repo that contains two Typescript files that were used to encrypt a plain text string. It provides all the details such as the encryption algorithm used, how an initialization vector is created, mocha tests you can use to confirm are working as needed, and a redacted `decrypt` function which is what you'll need to write yourself and use in your solution.
-
-2. While the source code provided is in Typescript (and is built/executed in a Node.js environment), you **DO NOT** need to use this source code or a Javascript runtime/Node.js environment in your solution, use whatever language, runtime, etc. you'd like!
-
-3. Your final deliverable is to create a repository with a `Dockerfile` we can use to build a container and execute to decrypt the ciphertext provided above.
-
-## Testing your deliverable
+## Testing the deliverable
 
 When you provide us your final deliverable repository (this can be a tarball of source code, GitHub repo, GitLab, etc.), we will execute the following steps to confirm the solution is adequate:
 
