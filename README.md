@@ -25,7 +25,7 @@ Encryption key: `risk3sixty`
 
 While working on the coding challenge, I chose to document what the code is doing to help understand the functionality better and provide more insight into my approach to solving technical problems.
 
-This documentation can be found in .md files as well as comments in the code.
+This documentation can be found in the [Encryption.md file](https://github.com/ChadCalcote/chadcalcote-task-docker/blob/master/src/libs/Encryption.md) as well as comments in the code.
 
 ## Testing the deliverable
 
