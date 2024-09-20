@@ -1,54 +1,5 @@
-// built-in module providing cryptographic functions
 import crypto from 'crypto'
 import { IVandKey } from './typings'
-
-// TO DO
-// Write documentation 
-
-// What is encryption?
-// Cybersecurity method protecting data by scrambling it using math modals so only authorized parties can access it
-// Converts readable data into an unreadable format called ciphertext
-// Only those with the key to decrypt the data can access the original information
-
-// What is decryption?
-// Process of converting encrypted data back into its original, readable form form
-
-// cipher algorithm
-// Block cipher mode of operation that uses Advanced Encryption Standard (AES) to encrypt data
-// Good choice for high-speed networking
-// Counter - initial counter incremented after each intermediate result until overflow
-// Initialization Vector (IV) - 128 bits longs, includes nonce and initial counter
-// Data is encrypted and decrypted by XORing with the key stream produced by AES
-// Key stream precomputation - key stream is precomputed once iv and nonce are assigned
-
-// CTR Mode
-/**
- * https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR
- * Block cipher mode of operation using block cipher algorithm
- * AES Processing Ability
- * Cipherkey length for AES is 256
- * Limitation - working mode works on units fixed sizd (128 bits for 1 block), but text in real world has a variety of lengths
- * Last block of text provided to this primitive must be padded to 128 bits before encryption or decryption 
- * https://xilinx.github.io/Vitis_Libraries/security/2020.1/guide_L1/internals/ctr.html
- */
-
-/**
- * IV is random in our case so it can be combined with the counter using an invertible operation to produce unique counter block for encryption
- * Key is constant when you use CTR
- * IV affects the cipher input, so the keystream varies
- * The decrypter will know both the key and the IV
- * They can calculate the same function as the encrypter did, resulting in the same keystream block, which a XOR cancels out
- */
-
-// Block cipher
-/**
- * Consists of two paired algorithms, one for encryption and another for decryption
- * Both encryption and decryption algorithms accept two inputs: input block and key (which we get off secret)
- */
-
-// Hashing is a method to convert plain text to encrypted/cipher text
-// You cannot recover original text from cipher text
-// You can regenerate the exact cipher text from the original text
 
 /**
    * Returns an object with methods, encrypt and decrypt and private string variables algorithm and secret
@@ -58,8 +9,6 @@ import { IVandKey } from './typings'
    */
 export default function Encryption(secret: string) {
   const alg: string = 'aes-256-ctr'
-
-
 
   return {
     _algorithm: alg,
@@ -163,12 +112,9 @@ function getFilledSecret(secret: string): string {
  * @returns digest secret of string type.
  */
 function getKeyAndIV(key: string, iv?: Buffer): IVandKey {
-  // if no iv buffer provided, generate cryptographically secure random data
-  const ivBuffer = iv || crypto.randomBytes(16) // Buffer - similar to array of integers but corresponds to a raw memory allocation
-  // generate a derived key using pbkdf2Sync algorithm, which is a password-based key derivation function.
-  // password, salt, keylen, options
-  const derivedKey = crypto.pbkdf2Sync(key, ivBuffer, 1e5, 32, 'sha256') // Buffer
-  // return iv and key
+  const ivBuffer = iv || crypto.randomBytes(16)
+  const derivedKey = crypto.pbkdf2Sync(key, ivBuffer, 1e5, 32, 'sha256')
+
   return {
     iv: ivBuffer,
     key: derivedKey,
