@@ -27,6 +27,8 @@ While working on the coding challenge, I chose to document what the code is doin
 
 This documentation can be found in the [Encryption.md file](https://github.com/ChadCalcote/chadcalcote-task-docker/blob/master/src/libs/Encryption.md) as well as comments in the code.
 
+A typings.ts file was created for typings and interfaces located at [typings.ts](https://github.com/ChadCalcote/chadcalcote-task-docker/blob/master/src/libs/typings.ts)
+
 ## Testing the deliverable
 
 To test the deliverable, please follow the steps below in your terminal:
