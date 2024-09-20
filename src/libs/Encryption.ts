@@ -1,5 +1,6 @@
 // built-in module providing cryptographic functions
 import crypto from 'crypto'
+import { IVandKey } from './typings'
 
 // TO DO
 // Write documentation 
@@ -22,7 +23,7 @@ export default function Encryption(secret: string) {
   // Initialization Vector (IV) - 128 bits longs, includes nonce and initial counter
   // Data is encrypted and decrypted by XORing with the key stream produced by AES
   // Key stream precomputation - key stream is precomputed once iv and nonce are assigned
-  const alg = 'aes-256-ctr'
+  const alg: string = 'aes-256-ctr'
 
   // CTR Mode
   /**
@@ -54,7 +55,7 @@ export default function Encryption(secret: string) {
     _algorithm: alg,
     _secret: secret,
 
-    encrypt(input: Buffer | string) {
+    encrypt(input: Buffer | string): string {
       const secret = getFilledSecret(this._secret) // digest secret
       const { iv, key } = getKeyAndIV(secret) // deconstruct for iv and key (Buffers)
       // Create Cipher Object that can be used to encrypt data using algorithm, key, and initialization vector
@@ -69,8 +70,7 @@ export default function Encryption(secret: string) {
       return `${cipherText}:${iv.toString('base64')}`
     },
 
-    decrypt(ciphertext: string) {
-      // REDACTED, YOU SHOULD WRITE THE CODE TO DECRYPT THE CIPHERTEXT PROVIDED HERE
+    decrypt(ciphertext: string): string {
       const cipherTextAndIv = ciphertext.split(":")
       // Get the secret
       const secret = getFilledSecret(this._secret)
@@ -105,7 +105,7 @@ function getFilledSecret(secret: string): string {
   return sha256Sum.digest('base64')
 }
 
-function getKeyAndIV(key: string, iv?: Buffer) {
+function getKeyAndIV(key: string, iv?: Buffer): IVandKey {
   // if no iv buffer provided, generate cryptographically secure random data
   const ivBuffer = iv || crypto.randomBytes(16) // Buffer - similar to array of integers but corresponds to a raw memory allocation
   // generate a derived key using pbkdf2Sync algorithm, which is a password-based key derivation function.
