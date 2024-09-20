@@ -1,6 +1,6 @@
-# candidate-task-docker
+# chadcalcote-task-docker
 
-This is a fun little task for R&D/engineering candidates to accomplish to help us in understanding how you approach solving technical problems!
+This is an Encryption task with encrypt and decrypt functionality. It has Docker containerization capabilities.
 
 ## Task Requirements
 
