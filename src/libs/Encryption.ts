@@ -4,7 +4,6 @@ import { IVandKey } from './typings'
 
 // TO DO
 // Write documentation 
-// Add more typings
 
 // What is encryption?
 // Cybersecurity method protecting data by scrambling it using math modals so only authorized parties can access it
