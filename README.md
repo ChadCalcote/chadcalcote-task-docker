@@ -9,7 +9,7 @@ This is an Encryption task with encrypt and decrypt functionality. It has Docker
 
 ## Requirements Met
 
-1. `decrypt` function is written inside of the Encryption.ts file and later used in the decryptString.ts file in the src/ directory. This is the inverse of our `encrypt` function. The decryption process takes the same secret key (private) and ciphertext as input to decipher the original data.
+1. `decrypt` function is written inside of the [Encryption.ts file](https://github.com/ChadCalcote/chadcalcote-task-docker/blob/master/src/libs/Encryption.ts) and later used in the [decryptString.ts file](https://github.com/ChadCalcote/chadcalcote-task-docker/blob/master/src/decryptString.ts) in the src/ directory. This is the inverse of our `encrypt` function. The decryption process takes the same secret key (private) and ciphertext as input to decipher the original data.
   
 2. The source code from [candidate-task-docker](https://github.com/risk3sixty/candidate-task-docker), provided in TypeScript and built/executed in a Node.js environment, is being used for this project.
    
