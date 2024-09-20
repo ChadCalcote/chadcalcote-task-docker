@@ -4,7 +4,7 @@
   "description": "risk3sixty docker task for engineering candidates.",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/yourMainScriptHere.js",
+    "start": "node dist/decryptString.js",
     "test": "mocha --require ts-node/register --recursive './src/**/*.spec.ts'"
   },
   "author": "Lance Whatley",
