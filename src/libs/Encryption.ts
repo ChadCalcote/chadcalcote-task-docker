@@ -63,15 +63,15 @@ export default function Encryption(secret: string) {
       const secret = getFilledSecret(this._secret)
       // Get the iv from the input so it is the same as our encrypt
       // Convert string back to original Buffer format
-      const ivBuffer = Buffer.from(cipherTextAndIv[1], 'base64');
+      const ivBuffer = Buffer.from(cipherTextAndIv[1], 'base64')
       // Get the key from the secret
       const { key, iv } = getKeyAndIV(secret, ivBuffer)
       // Create input string
       const decipher = crypto.createDecipheriv(this._algorithm, key, iv)
-      let decrypted = decipher.update(cipherTextAndIv[0], 'base64', 'utf8');
-      decrypted += decipher.final('utf8');
+      let decrypted = decipher.update(cipherTextAndIv[0], 'base64', 'utf8')
+      decrypted += decipher.final('utf8')
 
-      return decrypted;
+      return decrypted
     },
   }
 }
