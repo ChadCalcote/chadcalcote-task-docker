@@ -2,6 +2,12 @@
 
 This is an Encryption task with encrypt and decrypt functionality. It has Docker containerization capabilities and is built using TypeScript.
 
+These are the variables used from the provided requirements:
+
+Ciphertext: `f78D2XXh8tnSc8a5/FE=:0LDv4U8TeV918C/NvPLOpA==`
+
+Encryption key: `risk3sixty`
+
 **Table of Contents**
   * [Requirements Met](#Requirements-Met)
   * [Extras](#Extras)
@@ -20,10 +26,6 @@ This is an Encryption task with encrypt and decrypt functionality. It has Docker
 While working on the coding challenge, I chose to document what the code is doing to help understand the functionality better and provide more insight into my approach to solving technical problems.
 
 This documentation can be found in .md files as well as comments in the code.
-
-Ciphertext: `f78D2XXh8tnSc8a5/FE=:0LDv4U8TeV918C/NvPLOpA==`
-
-Encryption key: `risk3sixty`
 
 ## Testing the deliverable
 
