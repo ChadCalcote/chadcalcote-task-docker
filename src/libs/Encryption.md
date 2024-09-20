@@ -3,13 +3,13 @@
 Helpful information and documentation regarding encryption and decryption.
 
 **Table of Contents**
-    * [Glossary](#glossary)
-    * [crypto](#crypto)
-    * [What is Encryption?](#What is Encryption?)
-    * [What is Decryption?](#What is Decryption?)
-    * [What is the cipher algorithm?](#What is the cipher algorithm?)
-    * [What is hashing?](#What is hashing?)
-    * [Block Cipher and CTR Mode](#Block Cipher and CTR Mode)
+   * [Glossary](#glossary)
+   * [crypto](#crypto)
+   * [What is Encryption](#What is Encryption?)
+   * [What is Decryption](#What is Decryption?)
+   * [What is the cipher algorithm](#What is the cipher algorithm?)
+   * [What is hashing](#What is hashing?)
+   * [Block Cipher and CTR Mode](#Block Cipher and CTR Mode)
 
 ## Glossary
 
