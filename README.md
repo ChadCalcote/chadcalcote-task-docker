@@ -13,7 +13,7 @@ This is an Encryption task with encrypt and decrypt functionality. It has Docker
   
 2. The source code from [candidate-task-docker](https://github.com/risk3sixty/candidate-task-docker), provided in TypeScript and built/executed in a Node.js environment, is being used for this project.
    
-3. The final deliverable is created in this repository with a `Dockerfile`. Instructions to build and run the container, thus executing the `decrypt` function, are located in the [Testing the Deliverable](#Testing-the-Deliverable) section below.
+3. The final deliverable is created in this repository with a `Dockerfile` located [here](https://github.com/ChadCalcote/chadcalcote-task-docker/blob/master/Dockerfile). Instructions to build and run the container, thus executing the `decrypt` function, are located in the [Testing the Deliverable](#Testing-the-Deliverable) section below.
 
 ## Extras
 
