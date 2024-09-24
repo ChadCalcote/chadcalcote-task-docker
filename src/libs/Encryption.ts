@@ -91,7 +91,7 @@ export default function Encryption(secret: string) {
  * @param secret - secret text with string type.
  * @returns digest secret of string type.
  */
-function getFilledSecret(secret: string): string {
+export function getFilledSecret(secret: string): string {
   const sha256Sum = crypto.createHash('sha256')
   sha256Sum.update(secret)
   return sha256Sum.digest('base64')
@@ -111,7 +111,7 @@ function getFilledSecret(secret: string): string {
  * @param iv - Initialization Vector (IV) with Buffer type.
  * @returns digest secret of string type.
  */
-function getKeyAndIV(key: string, iv?: Buffer): IVandKey {
+export function getKeyAndIV(key: string, iv?: Buffer): IVandKey {
   const ivBuffer = iv || crypto.randomBytes(16)
   const derivedKey = crypto.pbkdf2Sync(key, ivBuffer, 1e5, 32, 'sha256')
 

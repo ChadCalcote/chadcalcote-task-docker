@@ -14,7 +14,10 @@ Helpful information and documentation regarding encryption and decryption.
 ## Glossary
 
 Counter - initial counter incremented after each intermediate result until overflow.
+
 Initialization Vector (IV) - 128 bits longs, includes nonce and initial counter.
+
+Container - Loosely isolated environment
 
 ## crypto
 
@@ -82,3 +85,145 @@ Both encryption and decryption algorithms accept two inputs: input block and key
 [Understanding CTR Mode](https://xilinx.github.io/Vitis_Libraries/security/2020.1/guide_L1/internals/ctr.html)
 
 [CTR Mode](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR)
+
+
+## What is Docker?
+
+Open platform for developing, shipping, and running applications.
+
+Docker enables you to separate your applications from your infrastructure so you can deliver software quickly.
+
+Manage infrastructure in the smae ways you manage your applications.
+
+Significantly reduce delay between writing code and running it in production.
+
+Isolation and security lets you run many containers simultaneously on a given host.
+
+Containers are lightweight and contain everything you need to run the application. No need to rely on what's installed on the host.
+
+Docker's uses:
+
+[Docker Docs](https://docs.docker.com/get-started/docker-overview/)
+
+- Fast, consistent delivery of your applications
+
+   Scenarios:
+
+   - Developers write code locally and share their work with colleagues using Docker containers.
+
+   - Use Docker to push apps to test environment and run automated and manual tests.
+
+   - When developers find bugs, they can fix them in dev environment and redeploy them to test environment for testing and validation.
+
+   - When testing is done, it is as simple as pushing the fux in an updated image to the production environment
+
+- Responsive deployment and scaling
+
+- Running more workloads on the same hardware
+
+Architecture
+
+Docker client talks to Docker daemon
+
+daemon does heavy lifting of building, running, and distributing Docker containers
+
+daemon and client communciate using REST API over network interface
+
+Docker daemon
+
+listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes
+
+A daeomon also communicates with other daemons to manage Docker services
+
+Docker client
+
+primary way for users to interact with Docker
+
+When user uses commands such as docker run, client sends these commands to dockerd (daemon), which carries them out.
+
+docker command uses the Docker API
+
+Docker Desktop
+
+application for your machine
+
+Includes the daemon and the Docker client
+
+Docker registries
+
+Docker registries store Docker images
+
+Docker Hub is a public registry anyone can use and Docker looks for images on Docker Hub by default
+
+Docker objects
+
+Images - read-only template with instructions for creating a Docker container
+
+Standardized package that contains everything you need to run an application, including its files, configuration, and dependencies
+
+Often an image is based on another image, with additional customization
+
+A Dockerfile with simple syntax defines the steps needed to create the image and run it
+
+Each instruction creates a layer in the image
+
+When you change the Dockerfile, and rebuild the image, only the laters changed are rebuilt
+
+This is what makes image lightweight, small, and fast
+
+Containers - runnable instance of an image
+
+A container is defined by its image as well as configuration option you provide to it when you create or start it.
+
+Docker is written in Go and takes advantage of features of the Linux kernel to deliver its functionality.
+
+Steps:
+
+docker build -t chadcalcote .
+
+-t is for name flage
+Build an image with name chadcalcote from the Dockerfile in the current working directory
+
+docker run -e ciphertext=f78D2XXh8tnSc8a5/FE=:0LDv4U8TeV918C/NvPLOpA== chadcalcote
+
+Create and run a new container from chadcalcote image while setting the ciphertext environment variable to f78D2XXh8tnSc8a5/FE=:0LDv4U8TeV918C/NvPLOpA==
+
+What I would do differently:
+
+Chose to do environment variables as they are more clear in their usage and can be easily used in a node js environment. 
+
+Build arguments are only available when building the image
+
+Pass the environment variables directly in the Dockerfile to eliminate possibility of putting in ciphertext incorrectly
+
+Build Arguments vs. Environment Variables
+
+Both serve as a means to pass infomrmation into the build process
+
+You can use them to parameterize the build, allowing for more flexible and configurable builds.
+
+Inappropriate for passing secrets to your build, because they're epxosed in the final image
+
+Use secret mounts or SSH mounts for this
+
+Both can be declared in Dockerfile
+
+Both can be used to parameterize the build
+
+Build arguments
+
+Variables for the Dockerfile itself
+
+You might use a build argument to specify the version of a dependency to install
+
+They have no effect on a build unless used in an instruction
+
+Most commonly used to specify versions of components
+
+Environment Variables
+
+Environment variables you set persist in containers and using them can lead to unintended side-effects for the app's runtime.
+
+
+
+
