@@ -46,7 +46,7 @@ export default function Encryption(secret: string) {
      * Returns a string of the deciphered text
      * 
      * @remarks
-     * This method takes the ciphertext input string and splits it at the character ":"'
+     * This method takes the ciphertext input string and splits it at the character ":"
      * It then uses another function, getFilledSecret to get a digest secret from our provided secret.
      * We then convert the iv string part of the ciphertext input string to a Buffer.
      * It then proceeds to use this digest secret and ivBuffer to get an initialization vector (IV) and a key from the getKeyandIV function.
@@ -61,12 +61,9 @@ export default function Encryption(secret: string) {
     decrypt(ciphertext: string): string {
       const cipherTextAndIv = ciphertext.split(":")
       const secret = getFilledSecret(this._secret)
-      // Get the iv from the input so it is the same as our encrypt
-      // Convert string back to original Buffer format
       const ivBuffer = Buffer.from(cipherTextAndIv[1], 'base64')
-      // Get the key from the secret
       const { key, iv } = getKeyAndIV(secret, ivBuffer)
-      // Create input string
+
       const decipher = crypto.createDecipheriv(this._algorithm, key, iv)
       let decrypted = decipher.update(cipherTextAndIv[0], 'base64', 'utf8')
       decrypted += decipher.final('utf8')
@@ -102,7 +99,7 @@ export function getFilledSecret(secret: string): string {
  * 
  * @remarks
  * If no IV Buffer is provided, generate cryptographically secure random data with built-in Node module crypto and its function randomBytes.
- * Generate a derived key using crypto algorithm pbkdf2Sync (password-based key derivation function) and providing it with password, salt, keylen, and digest as arguments.
+ * Generate a derived key using crypto algorithm pbkdf2Sync (password-based key derivation function) and providing it with password, salt, iterations, keylen, and digest as arguments.
  * Return the object with ivBuffer and derivedKey
  * 
  * @link https://metaschool.so/articles/nodejs-crypto-module/

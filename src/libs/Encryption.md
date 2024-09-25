@@ -86,6 +86,19 @@ Both encryption and decryption algorithms accept two inputs: input block and key
 
 [CTR Mode](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR)
 
+## (AES) 256 CTR Mode
+
+Key size - 256 bits, which makes it difficult to crack
+
+Encryption and decryption - use same key
+
+Counter - User chooses an initial counter that increases with each intermediate result until it overflows
+
+Nonce - random number part of the IV
+
+Output - XORed (exclusive or), bitwise operator that compares two input bits to produce a single output bit.
+
+CTR mode allows for encryption and decryption to be performed in parallel
 
 ## What is Docker?
 
@@ -192,9 +205,13 @@ What I would do differently:
 
 Chose to do environment variables as they are more clear in their usage and can be easily used in a node js environment. 
 
-Build arguments are only available when building the image
+Write more tests. Knowing how something fails is just as important as how something succeeds
+
+Pass secret key as an environmant variable as well
 
 Pass the environment variables directly in the Dockerfile to eliminate possibility of putting in ciphertext incorrectly
+
+Build arguments are only available when building the image
 
 Build Arguments vs. Environment Variables
 
